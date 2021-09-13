@@ -624,12 +624,11 @@ unknown adjusted count.
 
 ### Composition rules
 
-
-| Input decision<br> \ <br>Sampler result                                                           | Input decision has unknown adjusted count<br>p<sub>0</sub>=0<br>sampled<sub>1</sub>∈{true,false} | Input decision has known adjusted count<br><sub>0</sub>∈[1,63]<br>sampled<sub>1</sub>∈{true,false}                      |
-| --                                                                                                | --                                                                                               | --                                                                                                  |
-| p<sub>1</sub>=0<br>sampled<sub>1</sub>∈{true,false}                                               | p=0, <br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)                             | p=p<sub>0</sub>,<br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)                     |
-| (p<sub>1</sub>∈[1,62], sampled<sub>1</sub>=true)<br>(p<sub>1</sub>=63, sampled<sub>1</sub>=false) | p=p<sub>1</sub>,<br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)                  | p=min(p<sub>0</sub>, p<sub>1</sub>),<br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>) |
-|                                                                                                   |                                                                                                  |                                                                                                     |
+| Input decision<br> \ <br>Sampler result                                                           | Unknown adjusted count:<br>p<sub>0</sub>=0<br>sampled<sub>1</sub>∈{true,false}  | Known adjusted count:<br><sub>0</sub>∈[1,63]<br>sampled<sub>1</sub>∈{true,false}                    |
+| --                                                                                                | --                                                                              | --                                                                                                  |
+| <b>p<sub>1</sub>=0<br>sampled<sub>1</sub>∈{true,false}</b>                                        | p=0, <br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)            | p=p<sub>0</sub>,<br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)                     |
+| (p<sub>1</sub>∈[1,62], sampled<sub>1</sub>=true)<br>(p<sub>1</sub>=63, sampled<sub>1</sub>=false) | p=p<sub>1</sub>,<br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>) | p=min(p<sub>0</sub>, p<sub>1</sub>),<br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>) |
+|                                                                                                   |                                                                                 |                                                                                                     |
 
 ### Proposed `Span` field documentation
 
