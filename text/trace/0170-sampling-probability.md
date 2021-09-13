@@ -627,9 +627,7 @@ unknown adjusted count.
 | Composition and Sampler results<br> In all cases: <br> sampled=(sampled<sub>0</sub> OR sampled<sub>1</sub>) | p<sub>0</sub>=0 sampled<sub>1</sub>∈{true,false} | p<sub>0</sub>∈[1,63] sampled<sub>1</sub>∈{true,false} |
 | --                                                                                                          | --                                               | --                                                    |
 | p<sub>1</sub>=0 sampled<sub>1</sub>∈{true,false}                                                            | p=0                                              | p=p<sub>0</sub>                                       |
-| p<sub>1</sub>∈[1,62] sampled<sub>1</sub>=true                                                               | p=p<sub>1</sub>                                  | p=min(p<sub>0</sub>, p<sub>1</sub>)                   |
-| p<sub>1</sub>=63 sampled<sub>1</sub>=false                                                                  | p=p<sub>1</sub>                                  | p=min(p<sub>0</sub>, p<sub>1</sub>)                   |
-
+| p<sub>1</sub>∈[1,62] sampled<sub>1</sub>=true<br>p<sub>1</sub>=63 sampled<sub>1</sub>=false                 | p=p<sub>1</sub>                                  | p=min(p<sub>0</sub>, p<sub>1</sub>)                   |
 
 ### Proposed `Span` field documentation
 
