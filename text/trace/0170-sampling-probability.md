@@ -624,10 +624,10 @@ unknown adjusted count.
 
 ### Composition rules
 
-| Input decision<br> \ <br>Sampler result                                                                 | Unknown adjusted count:<br>p<sub>0</sub>=0<br>sampled<sub>1</sub>∈{true,false} | Known adjusted count:<br>p<sub>0</sub>∈[1,63]<br>sampled<sub>1</sub>∈{true,false}                      |
+| Input decision<br> \ <br>Sampler result                                                                 | Unknown adjusted count<br>p<sub>0</sub>=0<br>sampled<sub>1</sub>∈{true,false} | Known adjusted count<br>p<sub>0</sub>∈[1,63]<br>sampled<sub>1</sub>∈{true,false}                      |
 | --                                                                                                      | --                                                                             | --                                                                                                     |
-| <b>p<sub>1</sub>=0<br>sampled<sub>1</sub>∈{true,false}</b>                                              | p=0, <br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)           | p=p<sub>0</sub><br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)                        |
-| <b>(p<sub>1</sub>∈[1,62], sampled<sub>1</sub>=true) or<br>(p<sub>1</sub>=63, sampled<sub>1</sub>=false) | p=p<sub>1</sub><br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>) | p=min(p<sub>0</sub>, p<sub>1</sub>)<br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)</b> |
+| <b>Non-probability sampler<br>p<sub>1</sub>=0<br>sampled<sub>1</sub>∈{true,false}</b>                                              | p=0, <br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)           | p=p<sub>0</sub><br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)                        |
+| <b>Probability sampler<br>(p<sub>1</sub>∈[1,62], sampled<sub>1</sub>=true) or<br>(p<sub>1</sub>=63, sampled<sub>1</sub>=false) | p=p<sub>1</sub><br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>) | p=min(p<sub>0</sub>, p<sub>1</sub>)<br>sampled=logicalOr(sampled<sub>0</sub>, sampled<sub>1</sub>)</b> |
 |                                                                                                         |                                                                                |                                                                                                        |
 
 ### Proposed `Span` field documentation
