@@ -585,8 +585,8 @@ recognizing Spans with unknown adjusted count when the new field is
 unset.  Thus, the 0 value shall mean unknown adjusted count.
 
 The OTEP 168 proposal for _propagating_ head sampling probability uses
-6 bits of information, with 62 ordinary values, one zero value, and a
-single unused value.
+6 bits of information, with 62 ordinary values, one zero value, and an
+Unknown value.
 
 Here, we propose a biased encoding for head sampling probability equal
 to 1 plus the `P` value as proposed in OTEP 168.  The proposed span
@@ -621,6 +621,15 @@ Non-probabilistic Samplers such as the [Leaky-bucket rate-limited
 sampler](https://github.com/open-telemetry/opentelemetry-specification/issues/1769)
 SHOULD set the `log_head_adjusted_count` field to zero to indicate an
 unknown adjusted count.
+
+### Composition rules
+
+| Composition and Sampler results<br> In all cases: <br> sampled=(sampled<sub>0</sub> OR sampled<sub>1</sub>) | p<sub>0</sub>=0 sampled<sub>1</sub>∈{true,false} | p<sub>0</sub>∈[1,63] sampled<sub>1</sub>∈{true,false} |
+| --                                                                                                          | --                                               | --                                                    |
+| p<sub>1</sub>=0 sampled<sub>1</sub>∈{true,false}                                                            | p=0                                              | p=p<sub>0</sub>                                       |
+| p<sub>1</sub>∈[1,62] sampled<sub>1</sub>=true                                                               | p=p<sub>1</sub>                                  | p=min(p<sub>0</sub>, p<sub>1</sub>)                   |
+| p<sub>1</sub>=63 sampled<sub>1</sub>=false                                                                  | p=p<sub>1</sub>                                  | p=min(p<sub>0</sub>, p<sub>1</sub>)                   |
+
 
 ### Proposed `Span` field documentation
 
